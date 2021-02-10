@@ -12,7 +12,10 @@ const getUsersWithEyeColor = (users, color) => users.filter(user => user.eyeColo
 console.log(getUsersWithEyeColor(users, 'blue')); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
 
 // Task 03
-const getUsersWithGender = (users, gender) => users.filter(user => user.gender === gender);
+const getUsersWithGender = (users, gender) => {
+    return users
+    .filter(user => user.gender === gender)
+    .map(obj => obj.name)}
 
 console.log(getUsersWithGender(users, 'male')); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
 
@@ -41,15 +44,15 @@ const calculateTotalBalance = users => users.reduce((acc, user) => acc + user.ba
 console.log(calculateTotalBalance(users)); // 20916
 
 // Task 08
-const getUsersWithFriend = (users, friendName) => users.filter(user => user.friends.includes(friendName));
+const getUsersWithFriend = (users, friendName) => {
+    return users.filter(user => user.friends.includes(friendName)).map(obj => obj.name)};
 
 console.log(getUsersWithFriend(users, 'Briana Decker')); // [ 'Sharlene Bush', 'Sheree Anthony' ]
 console.log(getUsersWithFriend(users, 'Goldie Gentry')); // [ 'Elma Head', 'Sheree Anthony' ]
 
 // Task 09
-const getNamesSortedByFriendsCount = users => users
-.slice()
-.sort((a, b) => a.friends.length - b.friends.length);
+const getNamesSortedByFriendsCount = users => [...users.sort((a, b) => a.friends.length - b.friends.length)];
+
 
 console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
